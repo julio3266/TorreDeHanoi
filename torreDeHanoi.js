@@ -1,20 +1,18 @@
-window.load = initPage;
-const Torre1 = n1;
-const Torre2 = n2;
-const Torre3 = n3;
-const n = 4;
+var torre1 = 1;
+var torre2 = 2;
+var torre3 = 3;
+var n = 4; 
 
-//n =  discos
-//origem,auxiliar e destino
-    TorreDeHanoi(n, origem, destino, auxiliar);
+hanoi(n, torre1, torre3, torre2);
 
-function TorreDeHanoi(n, origem, destino, auxiliar){
-    if(n == 1) {
-        document.write("Movimente o disco"+ n + "Da" + origem + "até" + destino + "</br>"); //quebra linha
-    } else {
-        TorreDeHanoi(n - 1, origem, auxiliar, destino);
-        
-        document.write('Mova o disco' + 1 + 'De' + origem + 'Até' + destino + '</br>');
-        TorreDeHanoi(n - 1, auxiliar, destino, origem);
-    }   
+function hanoi(n, ori, des, aux)
+{
+ if(n == 1)
+  document.write("Mova o disco " + n + " da torre de " + ori + " até " + des + "<br/>");
+ else
+ {
+  hanoi(n - 1, ori, aux, des);
+    document.write("Mova o disco " + n + " da torre de " + ori + " até " + des + "<br/>");
+  hanoi(n - 1, aux, des, ori);
+ }
 }
